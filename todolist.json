@@ -1,1 +1,83 @@
+{
+    "openapi" : "3.0.3",
+    "info" : {
+        "title" : "Todolist API",
+        "version": "1",
+        "description": "OpenAPI for Todolist RESTful API",
+        "termsOfService": "https://google.com",
+        "contact": {
+            "name": "Dikot Syarif",
+            "email": "dikot@app.com",
+            "url": "https://google.com"
+        },
+        "license": {
+            "name": "APACHE 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0"
 
+        }
+    },
+    "servers" : [
+        {
+            "url": "https://{environment}.todolist.com/api/v1",
+            "variables": {
+                "environment" : {
+                    "description" : "Server Environment",
+                    "default" : "dev",
+                    "enum" : [
+                            "dev",
+                            "qa",
+                            "prod"
+                        ]
+                }
+            }
+        }
+    ],
+    "externalDocs": {
+        "description": "Our Website",
+        "url": "https://google.com"
+    },
+    "paths": {
+        "/todolist" : {
+            "get" : {
+                "summary": "Get semua todolist",
+                "description": "Get semua list todolist",
+                "parameters": [
+                    {
+                        "name": "include one",
+                        "in": "query",
+                        "required": false,
+                        "description": "Menampilkan semua data todolist"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filter nama todolist"
+                    }
+                ],
+                "responses": {
+                }
+            },
+            "post" : {
+                "summary": "Create todolist baru",
+                "description": "Create todolist baru",
+                "responses": {
+                }
+            }
+        },
+        "/todolist/{todolistId}" : {
+            "put" : {
+                "summary": "Update todolist",
+                "description": "Update semua list todolist",
+                "responses": {
+                }
+            },
+            "delete" : {
+                "summary": "Delete todolist",
+                "description": "Delete todolist",
+                "responses": {
+                }
+            }
+        }
+    }
+}
